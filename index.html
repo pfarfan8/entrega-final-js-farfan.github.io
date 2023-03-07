@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Tienda</title>
+</head>
+
+<body>
+
+    <nav class="navbar">
+    </nav>
+    <header>
+     <div class="container">
+        <h1 class="text-center">Compras para el avion</h1>
+        <hr>
+     </div>
+    </header>
+    <section class="store">
+     <div class="container">
+        <div class="items">
+           <div class="row">
+              <div class="col-12 col-md-6">
+                   <div class="item shadow mb-4">
+                       <h3 class="item-title">cafe</h3>
+                          <img class="item-image" src="./img/cafe.jpg">
+
+                        <div class="item-details">
+                          <h4 class="item-price">$500</h4>
+                          <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                        </div>
+                   </div>
+                </div>
+              <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Tostadas</h3>
+
+                       <img class="item-image" src="./img/tostadas.jpg">
+
+                        <div class="item-details">
+                          <h4 class="item-price">$600</h4>
+                           <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                        </div>
+                     </div>
+              </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Botella de agua</h3>
+
+                               <img class="item-image" src="./img/agua.jpg">
+
+                            <div class="item-details">
+                                <h4 class="item-price">$300</h4>
+                                <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Snacks</h3>
+
+                              <img class="item-image" src="./img/snacks.jpg">
+
+                            <div class="item-details">
+                                <h4 class="item-price">$800</h4>
+                                <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Revistas</h3>
+
+                           <img class="item-image" src="./img/revistas.jpg">
+                            <div class="item-details">
+                                <h4 class="item-price">$350</h4>
+                                <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Asiento Preferncial</h3>
+
+                         <img class="item-image" src="./img/asiento.jpg">
+                            <div class="item-details">
+                                <h4 class="item-price">$2000</h4>
+                                <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sectorVisual">
+        <div class="container">
+            <h1 class="text-center">CARRITO</h1>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <div class="sectorVisual-header">
+                        <h6>Producto</h6>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="sectorVisual-header">
+                        <h6 class="text-truncate">Precio</h6>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="sectorVisual-header">
+                        <h6>Cantidad</h6>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="sectorVisual-items svItemsContainer">
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="sectorVisual-total d-flex align-items-center">
+                        <p class="mb-0">Total</p>
+                        <p class="ml-4 mb-0 compraTotal">0$</p>
+                       
+                        <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                            data-target="#comprarModal">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <script src="./tienda.js"></script>
+
+</body>
+
+</html>
