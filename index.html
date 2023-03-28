@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Tienda</title>
 </head>
 
@@ -21,9 +22,11 @@
      </div>
     </header>
     <section class="store">
-     <div class="container">
-        <div class="items">
-           <div class="row">
+     <div id = "contenedor-prod" class="container">
+
+       
+        
+            <div class="row">
               <div class="col-12 col-md-6">
                    <div class="item shadow mb-4">
                        <h3 class="item-title">cafe</h3>
@@ -43,7 +46,7 @@
 
                         <div class="item-details">
                           <h4 class="item-price">$600</h4>
-                           <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+                           <button class="item-button btn btn-primary agregarProducto" id="agregar">AÑADIR AL CARRITO</button>
                         </div>
                      </div>
               </div>
@@ -99,9 +102,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            
+    </div>
     </section>
+    <div class="container">
+        <h1>Lista de Usuarios que compraron sus pasajes</h1>
+        <ul id="users">
+
+        </ul>
+        <div class="container">
+            <h1>Clima actual en Argentina</h1>
+            <ul id="clima">
+    
+            </ul>
+    </div>
     <section class="sectorVisual">
         <div class="container">
             <h1 class="text-center">CARRITO</h1>
@@ -143,7 +157,8 @@
         </div>
 
     </section>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./tienda.js"></script>
 
 </body>
