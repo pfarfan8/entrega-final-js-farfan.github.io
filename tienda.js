@@ -1,4 +1,4 @@
-const addToShoppingCartButtons = document.querySelectorAll('.agregarProducto');
+const addToShoppingCartButtons = document.querySelectorAll('.agregarProducto');const addToShoppingCartButtons = document.querySelectorAll('.agregarProducto');
 addToShoppingCartButtons.forEach((agregarProductoButton) => {
   agregarProductoButton.addEventListener('click', agregarProductoClicked);
 });
@@ -10,6 +10,26 @@ const svItemsContainer = document.querySelector(
   '.svItemsContainer'
 );
 
+setTimeout(async () => {
+  const { value: accept } = await Swal.fire({
+    title: 'Terminos y condiciones',
+    input: 'checkbox',
+    inputValue: 1,
+    inputPlaceholder:
+      'Acepto Terminos y Condiciones',
+    confirmButtonText:
+      'Continue <i class="fa fa-arrow-right"></i>',
+    inputValidator: (result) => {
+      return !result && 'Necesitas aceptar T&C'
+    }
+  })
+  
+  if (accept) {
+    Swal.fire('Aceptaste Terminos y Condiciones :)')
+  }
+}, 1000);
+
+
 function agregarProductoClicked(event) {
   const button = event.target;
   const item = button.closest('.item');
@@ -19,7 +39,11 @@ function agregarProductoClicked(event) {
   const itemImage = item.querySelector('.item-image').src;
 
   agregarItems(itemTitle, itemPrice, itemImage);
+
+ 
+  
 }
+  
 
 function agregarItems(itemTitle, itemPrice, itemImage) {
   const elementsTitle = svItemsContainer.getElementsByClassName(
@@ -27,9 +51,7 @@ function agregarItems(itemTitle, itemPrice, itemImage) {
   );
   for (let i = 0; i < elementsTitle.length; i++) {
     if (elementsTitle[i].innerText === itemTitle) {
-      let cantidadElementos = elementsTitle[
-        i
-      ].parentElement.parentElement.parentElement.querySelector(
+      let cantidadElementos = elementsTitle[i].parentElement.parentElement.parentElement.querySelector(
         '.carComItemsQuantity'
       );
       cantidadElementos.value++;
@@ -68,6 +90,7 @@ function agregarItems(itemTitle, itemPrice, itemImage) {
   cFila
     .querySelector('.buttonDelete')
     .addEventListener('click', removecarComItems);
+   
 
   cFila
     .querySelector('.carComItemsQuantity')
@@ -98,6 +121,7 @@ function updatecompraTotal() {
     total = total + carComItemsPrice * carComItemsQuantity;
   });
   compraTotal.innerHTML = `${total.toFixed(2)}$`;
+
 }
 
 function removecarComItems(event) {
@@ -115,4 +139,45 @@ function quantityChanged(event) {
 function comprarButtonClicked() {
   svItemsContainer.innerHTML = '';
   updatecompraTotal();
+  Swal.fire(
+    'Bien hecho!',
+    'Ya procesamos su compra!',
+    'success'
+  )
 }
+
+
+const urlUsers = "https://jsonplaceholder.typicode.com/users";
+const listaUsuarios = document.querySelector("#users");
+
+fetch(urlUsers)
+  .then((respuesta) => respuesta.json())
+  .then ((data) => {
+    data.forEach(usuario => {
+      const li = document.createElement("li");
+      li.textContent = usuario.name;
+      listaUsuarios.append(li);
+    })
+  })
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '5199b8e6bdmshbd94442c4d453b6p13ab68jsnb611483877fd',
+      'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+    }
+  };
+  
+  
+  const temp = document.querySelector('#clima')
+
+  fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=argentina', options)
+    .then(response => response.json())
+    .then ((response) => {
+      
+        const div = document.createElement("div");
+        div.textContent = response.current.temp_c + "°C";
+        temp.append(div);
+      })
+   
+    .catch(err => console.error(err));
