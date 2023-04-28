@@ -1,4 +1,55 @@
-const addToShoppingCartButtons = document.querySelectorAll('.agregarProducto');const addToShoppingCartButtons = document.querySelectorAll('.agregarProducto');
+const carrito = [
+  {
+    n: 1,
+    nombre: "Cafe",
+    precio: 500,
+    img : "./img/cafe.jpg"
+  },
+  {
+    n: 2,
+    nombre: "Tostadas",
+    precio: 600,
+    img : "./img/tostadas.jpg"
+  },
+  {
+    n: 3,
+    nombre: "Botella de agua",
+    precio: 300,
+    img : "./img/agua.jpg"
+  },
+  {
+    n: 4,
+    nombre: "Snacks",
+    precio: 800,
+    img : "./img/snacks.jpg"
+  },
+  {
+    n: 5,
+    nombre: "Revistas",
+    precio: 350,
+    img : "./img/revistas.jpg"
+  },
+  {
+    n: 1,
+    nombre: "Asiento",
+    precio: 1000,
+    img : "./img/asiento.jpg"
+  }
+];
+
+let card = document.getElementById("card");
+carrito.map((a) =>{
+  card.innerHTML += ` <div class="item shadow mb-4">
+  <h3 class="item-title">${a.nombre}</h3>
+     <img class="item-image" src=${a.img}>
+
+   <div class="item-details">
+     <h4 class="item-price">${a.precio}</h4>
+     <button class="item-button btn btn-primary agregarProducto">AÑADIR AL CARRITO</button>
+   </div>
+</div>`;
+})
+const addToShoppingCartButtons = document.querySelectorAll('.agregarProducto');
 addToShoppingCartButtons.forEach((agregarProductoButton) => {
   agregarProductoButton.addEventListener('click', agregarProductoClicked);
 });
@@ -40,7 +91,6 @@ function agregarProductoClicked(event) {
 
   agregarItems(itemTitle, itemPrice, itemImage);
 
- 
   
 }
   
@@ -181,3 +231,5 @@ fetch(urlUsers)
       })
    
     .catch(err => console.error(err));
+
+    
